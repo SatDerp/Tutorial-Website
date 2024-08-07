@@ -1,0 +1,402 @@
+/* define special properties kind of like variables inside the :root 
+    properties must start with a '--' and then the name 
+*/
+:root {
+    --primary-color: #007AF3;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(235, 239, 242);
+    font-family: 'Poppins';
+}
+
+.navbar {
+    background-color: white;
+    padding: 1em;
+}
+
+.logo {
+    text-decoration: none;
+    font-weight:bold;
+    color:black;
+    font-size:1.2em;
+}
+
+.navbar span {
+    /* to use the defined property use var() and the name of it*/
+    color:var(--primary-color);
+}
+
+.navbar nav {
+   display: none;
+}
+
+.navbar .container {
+    display: flex;
+    place-content: space-between;
+}
+
+nav.menu {
+    cursor: pointer;
+    display: block;
+}
+
+a {
+    color:#444444;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+.hero {
+    text-align: center;
+}
+
+.left-section > .subheader {
+    text-transform: uppercase;
+    font-weight: bold;
+    color:grey;
+    letter-spacing: 0.3em;
+}
+
+.left-section h1 {
+    font-size: 2.5em;
+    line-height: 1.3em;
+    margin-top: 0.2em;
+}
+
+.primary-cta {
+    background-color: var(--primary-color);
+    color:white;
+    padding: 0.6em 1.3em;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 10em;
+    display: inline-block;
+}
+
+.watch-video-cta {
+    display:block;
+    margin-top: 1em;
+}
+
+.watch-video-cta img {
+    margin-right: 0.5em;
+}
+
+.right-section {
+    margin-top: 3em;
+}
+
+section.features-section {
+    background-color: #20272E;
+    color: white;
+}
+
+ul.features-list {
+    margin: 0;
+    padding-left: 0.1em;
+    display: grid;
+    /* this is for automatic scaling of the list*/
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+}
+
+.features-list li {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    position: relative;
+}
+
+.features-list li::before {
+    content: '';
+    position: absolute;
+    left: -2em;
+    width: 20px;
+    height: 20px;
+    background: url(images/bullet.svg);
+    background-size:contain;
+    margin-right: 0.5em;
+}
+
+.features-section > .container img {
+    display: none;
+}
+
+.review-section {
+    background-color: var(--primary-color);
+    color:white;
+}
+
+.review-list li {
+    text-align:center;
+    background-color: #006BD6;
+    padding: 2em 1em;
+    width: 80%;
+    margin: 0 auto 5em auto;
+    border-radius: 1em;
+}
+
+.review-list img {
+    width:5em;
+    height:5em;
+    border-radius:50%;
+    border: 5px solid #006BD6;
+    margin-top: -4.5em;
+}
+
+h2 {
+    font-size:2em;
+}
+
+.contact-left label {
+    display:block;
+    font-size: 1.2em;
+    margin-bottom:0.5em;
+}
+
+input, textarea {
+    width:100%;
+    padding:0.8em;
+    margin-bottom:1em;
+    border-radius:0.3em;
+    border:1px solid gray;
+    /*below is used to fix the size scaling with text boxes */
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background:var(--primary-color);
+    color:white;
+    font-weight: bold;
+    font-size:1.3em;
+    border-style: none;
+    border-radius:5em;
+    margin-bottom:5em;
+    
+    display:inline-block;
+    padding: 0.8em 2em;
+    width:unset;
+    cursor:pointer;
+}
+
+.contact-right iframe{
+    width:100%;
+    height:300px;
+}
+
+.navbar nav {
+    position: fixed;
+    /*z-index the higher means the more up in the screen it is*/
+    z-index: 998;
+    width: 66%;
+    right: 0;
+    top: 0;
+    background: #20272E;
+    height: 100vh;
+    padding: 1em;
+}
+
+ul.left-nav {
+    margin-top: 5em;
+}
+
+.navbar li > a{
+    color: white;
+    /* need to make it a block to change padding and margins*/
+    text-decoration: none;
+    display: block;
+    padding: 0.5em;
+    font-size: 1.3em;
+    text-align: right;
+
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.exit-menu {
+    cursor: pointer;
+    display: block;
+    float: right;
+    margin: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+    .menu, .exit-menu {
+        display: none;
+    }
+
+    .navbar .container {
+        display: grid;
+        grid-template-columns: 180px auto;
+        justify-content: unset;
+    }
+
+    .navbar nav {
+        display: flex;
+        justify-content: space-between;
+        background: none;
+        position: unset;
+        height: auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .navbar ul {
+        display: flex;
+    }
+
+    .navbar li > a {
+        color: black;
+        font-size: 1em;
+        padding: 0.1em 1em;
+    }
+
+    ul.left-nav {
+        margin: 0;
+    }
+
+    .navbar li.current-page a {
+        font-weight: bold;
+    }
+
+    .navbar li.premium-button a {
+        font-weight: bold;
+        color: var(--primary-color);
+        border-radius: 5em;
+        border: 3px solid var(--primary-color);
+        margin-top: -0.2em;
+
+        &:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    }
+}
+
+@media only screen and (min-width: 1080px){
+    .container {
+        width: 1080px;
+        margin: 0 auto;
+        
+    }
+    
+    section {
+        padding: 10em 4em;
+    }
+
+    .hero .container {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .left-section {
+        margin: 3em 3em 0 5em;
+    }
+
+    h1 {
+        font-size: 3em;
+        width: 90%;
+    }
+
+    .hero-cta {
+        display: flex;
+    }
+    
+    .primary-cta {
+        margin-right: 1em;
+    }
+
+    .right-section {
+        width: 30%;
+        margin-right: 8em;
+    }
+
+    ul.features-list {
+        display: block;
+        margin-left: 5em;
+    }
+
+    .features-list li {
+        font-size: 1.4em;
+        &:before {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .features-section {
+        position: relative;
+    }
+
+    .features-section .container img {
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 350px;
+        bottom: -2em;
+    }
+
+    .review-list {
+        display: flex;
+    }
+
+    .review-list li { 
+        margin: 0 1em;
+    }
+
+    .contact-section {
+        position: relative;
+    }
+
+    .contact-section .container {
+        display: flex;
+    }
+
+    .contact-right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45%;
+        height: 100%;
+    }
+
+    .contact-right iframe {
+        height: 100%;
+    }
+}   
+
+@media only screen and (min-width: 1450px) {
+    .features-section {
+        &:before {
+            content: '';
+            position: absolute;
+            width: 10%;
+            height: 20em;
+            background: var(--primary-color);
+            left: 0;
+            top: -4em;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 20em;
+            background: url(images/dots.svg) no-repeat;
+            left: 4.5;
+            top: 2em;
+        }
+    }
+}
